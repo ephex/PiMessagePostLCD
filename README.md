@@ -4,11 +4,9 @@
 
 #### Required packages
 
-The plan right now is to use apache module mod_wsgi to allow Python to host a wsgi server.  Compiled from source to use the default python v2.7 rather than the 2.6 that the Raspbian package wants to install.
+The plan right now is to use apache module mod_wsgi to allow Python to host a wsgi server.
 
-Location: https://code.google.com/p/modwsgi/wiki/QuickInstallationGuide
-./configure --with-python=/usr/bin/python
-
-to compile locally, we need apache2-prefork-dev and apache2-threaded-dev (which provide the apache apxs library)
+python3
+libapache2-mod-wsgi-py3
 
 ... more details to come as I figure out exactly how this is going to work...

@@ -2,11 +2,19 @@
 
 ## A python program that takes a message sent to the Raspberry Pi using HTTP POST request and displays it on the Adafruit Pi LCD Plate
 
-#### Required packages
-
-The plan right now is to use apache module mod_wsgi to allow Python to host a wsgi server.
+#### Requirements
 
 python3
-libapache2-mod-wsgi-py3
+apache2 (sudo a2dismod mpm_event && sudo a2enmod mpm_prefork cgi)
+/etc/apache2/sites-enabled/000-default.conf
+	<Directory /var/www/marquee>
+		Options +ExecCgi
+		DirectoryIndex index.py
+	</Directory>
+	AddHandler cgi-script .py
+	
+	DocumentRoot /var/www/marquee
 
-... more details to come as I figure out exactly how this is going to work...
+place index.py in /var/www/marquee
+chmod 755 /var/www/marquee/index.py
+
